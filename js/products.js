@@ -1,4 +1,5 @@
 const URL = "https://japceibal.github.io/emercado-api/cats_products/101.json"
+const CATEGORIES = "https://japceibal.github.io/emercado-api/cats/cat.json";
 function getHTML(producto){
 return `
   <div class="container shadow p-3 mb-5 bg-body rounded">
