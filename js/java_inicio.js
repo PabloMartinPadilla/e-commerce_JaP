@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
         document.getElementById("alert").style.display="none"
     }
     
+
  /*PRUEBA
     
     function login(usuario, contra){
