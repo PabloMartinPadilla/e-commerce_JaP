@@ -1,4 +1,4 @@
-const URL = "https://japceibal.github.io/emercado-api/cats_products/101.json"
+const URL = "https://japceibal.github.io/emercado-api/cats_products/"+ localStorage.getItem("catID") + ".json"
 const CATEGORIES = "https://japceibal.github.io/emercado-api/cats/cat.json";
 function getHTML(producto){
 return `
@@ -25,11 +25,19 @@ return `
 
 document.addEventListener("DOMContentLoaded",async function(){
     const listado= document.querySelector(".product-list");
-    const listaAutos= await getJSONData(URL);
+    const listaProductos= await getJSONData(URL);
 /*    const datos= listaAutos.data.products;
     console.log(listaAutos);
     console.log(datos); */
-    listaAutos.data.products.forEach(producto =>{
+    listaProductos.data.products.forEach(producto =>{
         listado.innerHTML += getHTML(producto)
     })
+});
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const titulo = document.getElementById("TituloProducto")
+  const tituloProductos = await fetch(URL);
+  const categoria = await tituloProductos.json();
+
+  titulo.innerHTML += (categoria.catName)
 });
