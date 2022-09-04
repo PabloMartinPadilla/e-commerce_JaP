@@ -1,5 +1,14 @@
-const URL = "https://japceibal.github.io/emercado-api/cats_products/"+ localStorage.getItem("catID") + ".json"
-const CATEGORIES = "https://japceibal.github.io/emercado-api/cats/cat.json";
+const URL = "https://japceibal.github.io/emercado-api/cats_products/"+ localStorage.getItem("catID") + ".json";
+
+const BestSeller= document.getElementById("BestSellers");
+const PriceLM= document.getElementById("PriceLM");
+const PriceML= document.getElementById("PriceML");
+const DesMin= document.getElementById("rangeFilterCountMin").value;
+const DesMax= document.getElementById("rangeFilterCountMax").value;
+const Filter= document.getElementById("Filter");
+const ClearFilter= document.getElementById("ClearFilter");
+
+/* contenido */
 function getHTML(producto){
 return `
   <div class="container shadow p-3 mb-5 bg-body rounded">
@@ -21,23 +30,25 @@ return `
   </div>
 `;
 
-}
-
+};
+/* ingresar contenido*/
 document.addEventListener("DOMContentLoaded",async function(){
-    const listado= document.querySelector(".product-list");
+    const listado= document.getElementById("ListaProductos");
     const listaProductos= await getJSONData(URL);
-/*    const datos= listaAutos.data.products;
-    console.log(listaAutos);
-    console.log(datos); */
+
     listaProductos.data.products.forEach(producto =>{
-        listado.innerHTML += getHTML(producto)
+        listado.innerHTML += getHTML(producto);
     })
 });
-
+/* cambiar titulo*/
 document.addEventListener("DOMContentLoaded", async () => {
-  const titulo = document.getElementById("TituloProducto")
+  const titulo = document.getElementById("TituloProducto");
   const tituloProductos = await fetch(URL);
   const categoria = await tituloProductos.json();
 
-  titulo.innerHTML += (categoria.catName)
+  titulo.innerHTML += (categoria.catName);
 });
+
+
+
+

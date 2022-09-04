@@ -13,16 +13,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
         localStorage.setItem("userEmail", email);   
         }  
     })
-    })
+    });
     
     function esconder(){
         document.getElementById("alert").style.display="none";
-    }
+    };
     
- /*PRUEBA
-    
-    function login(usuario, contra){
-        console.log("usuario :", usuario);
-        console.log("contraseña :", contra);
-    }
-*/
