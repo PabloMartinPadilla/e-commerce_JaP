@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
         }
         
         else{
+            /* Toma los datos del usuario */
         window.location.href = "inicio.html";
         localStorage.setItem("userEmail", email);   
         }  

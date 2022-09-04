@@ -40,8 +40,7 @@ let getJSONData = function(url){
     });
 }
 
-
-
+/* Remplaza el nombre del usuario */
 
 document.addEventListener("DOMContentLoaded", function (e) {
   let eemail = localStorage.getItem("userEmail");
