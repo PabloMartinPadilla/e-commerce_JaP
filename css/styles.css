@@ -1,6 +1,11 @@
 .jumbotron,
 .card-body,
 .container,
+
+.crece:hover{
+  transform: scale(1.02);
+}
+
 .site-header {
   font-family: 'Raleway', serif !important;
 }
@@ -41,10 +46,11 @@ nav a {
   font-weight: bold;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 900px) {
   .jumbotron {
     padding-top: 6rem;
     padding-bottom: 6rem;
+    display: none;
   }
 }
 
