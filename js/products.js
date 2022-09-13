@@ -60,7 +60,7 @@ function showProductsList() {
             ((maxPrice == undefined) || (maxPrice != undefined && parseInt(product.cost) <= maxPrice))){
 
         htmlContentToAppend += `
-        <div onclick="setCatID(${product.id})" class="tarjet crece shadow p-2 m-2 list-group-item list-group-item-action cursor-active">
+        <div onclick="setCatID(${product.id})" class="tarjet crece shadow p-2 m-2 list-group-item list-group-item-action cursor-active rounded ">
                 <div class="row">
                     <div class="col-3">
                         <img src="${product.image}" alt="${product.description}" class="img-thumbnail">
@@ -68,13 +68,33 @@ function showProductsList() {
                     <div class="col">
                         <div class="d-flex w-100 justify-content-between">
                             <h4 class="mb-1">${product.name}</h4>
-                            <small class="text-muted">${product.productCount} artículos</small>
+                            <small class="text-muted"> Vendidos: ${product.soldCount}</small>
                         </div>
                         <p class="mb-1">${product.description}</p>
+                        <h5 class="card-text"><small class="text-muted position-absolute bottom-0 end-0" style="padding:10px">${product.currency} ${product.cost}</small></h5>
                     </div>
                 </div>
             </div>
 `;
+
+/* <div class="container shadow p-3 mb-5 bg-body rounded">
+    <div class="card mb-3" style="max-width: 2000px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="${product.image}" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">${product.name}</h5>
+            <p class="card-text">${product.description}</p>
+            <p class="card-text"><small class="text-muted position-absolute bottom-0 end-1">Vendidos: ${product.soldCount}</small></p>
+            <p class="card-text"><small class="text-muted position-absolute bottom-0 end-0" style="padding-right:10px">${product.currency} ${product.cost}</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> */
+
         }
         document.getElementById("ListaProductos").innerHTML = htmlContentToAppend;
     }
