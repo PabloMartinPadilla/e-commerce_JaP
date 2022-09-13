@@ -70,7 +70,7 @@ function showProductsList() {
                             <h4 class="mb-1">${product.name}</h4>
                             <small class="text-muted"> Vendidos: ${product.soldCount}</small>
                         </div>
-                        <p class="mb-1">${product.description}</p>
+                        <p class="descat mb-1">${product.description}</p>
                         <h5 class="card-text"><small class="text-muted position-absolute bottom-0 end-0" style="padding:10px">${product.currency} ${product.cost}</small></h5>
                     </div>
                 </div>

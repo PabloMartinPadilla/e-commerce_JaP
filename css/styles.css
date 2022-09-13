@@ -199,3 +199,8 @@ a.custom-card:hover {
 .tarjet{
   background-color: #d8d8d860;
 }
+@media (max-width: 800px){
+  .descat{
+    display: none;
+  }
+}
