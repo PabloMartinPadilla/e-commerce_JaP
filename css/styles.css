@@ -2,6 +2,7 @@
 .card-body,
 .container,
 
+
 .crece:hover{
   transform: scale(1.02);
 }
@@ -193,4 +194,8 @@ a.custom-card:hover {
 
 .checked {
   color: orange;
+}
+
+.tarjet{
+  background-color: #d8d8d860;
 }

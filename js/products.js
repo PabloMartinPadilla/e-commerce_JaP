@@ -60,8 +60,8 @@ function showProductsList() {
             ((maxPrice == undefined) || (maxPrice != undefined && parseInt(product.cost) <= maxPrice))){
 
         htmlContentToAppend += `
-        <div class=" container shadow p-3 mb-5 bg-body rounded">
-    <div class="crece card mb-3" style="max-width: 2000px;">
+        <div class="container shadow p-3 mb-5 bg-body rounded">
+    <div class="card mb-3" style="max-width: 2000px;">
       <div class="row g-0">
         <div class="col-md-4">
           <img src="${product.image}" class="img-fluid rounded-start" alt="...">
