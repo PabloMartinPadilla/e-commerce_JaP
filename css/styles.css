@@ -2,6 +2,9 @@
 .card-body,
 .container,
 
+body{
+  margin: 0%;
+}
 
 .crece:hover{
   transform: scale(1.02);
