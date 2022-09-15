@@ -6,6 +6,10 @@ body{
   margin: 0%;
 }
 
+.main{
+  margin: 0%;
+}
+
 .crece:hover{
   transform: scale(1.02);
 }
