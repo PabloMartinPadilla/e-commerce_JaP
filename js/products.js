@@ -60,7 +60,7 @@ function showProductsList() {
             ((maxPrice == undefined) || (maxPrice != undefined && parseInt(product.cost) <= maxPrice))){
 
         htmlContentToAppend += `
-        <div onclick="setCatID(${product.id})" class="tarjet crece shadow p-2 m-2 list-group-item list-group-item-action cursor-active rounded ">
+        <div onclick="setCatID(${product.id})" class="tarjet crece shadow  mb-2 list-group-item list-group-item-action cursor-active rounded ">
                 <div class="row">
                     <div class="col-3">
                         <img src="${product.image}" alt="${product.description}" class="img-thumbnail">
