@@ -4,12 +4,47 @@ console.log(URL)
 let ProductsInfoArray = [];
 let ProductsComentsArray = [];
 
-function createDateTime(){
-    var currentdate = new Date(); 
-    var datetime =currentdate.getFullYear() + "/" + (currentdate.getMonth()+1)  + "/" + currentdate.getDate() + " "  
-                + currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
-    return datetime;
+
+
+function showProductsInfoList() {
+    let img = "";
+    htmlContentToAppend = 
+    `<h2 class="fw-bolder">${ProductsInfoArray.name}</h2>
+    <hr>
+    <h4 class="mb-0">Categoria</h4>
+    <p>${ProductsInfoArray.category}</p>    
+    <h4 class="mb-0">Descrición</h4>
+    <p>${ProductsInfoArray.description}</p>
+    <h4 class="mb-0" >Precio</h4>
+    <p > ${ProductsInfoArray.currency} ${ProductsInfoArray.cost}</p>
+
+    <h4 class="mb-0">Cantidad de vendidos</h4>
+    <p>${ProductsInfoArray.soldCount}</p>
+  </div>`
+
+    document.getElementById("product-info-container").innerHTML = htmlContentToAppend;
+    
+    for (let i = 0; i < ProductsInfoArray.images.length; i++) {
+        img += `<div class="">
+                    <div>
+                        <img src="${ProductsInfoArray.images[i]}"  width="300" class=" rounded float-start" alt="...">
+                    </div>
+                </div>`
+        document.getElementById("products-img").innerHTML = img;
+    }
+
 }
+document.addEventListener("DOMContentLoaded", function (e) {
+    getJSONData(url).then(function (resultObj) {
+        if (resultObj.status === "ok") {
+            ProductsInfoArray = resultObj.data;
+            showProductsInfoList()
+        }
+    });
+});
+
+
+
 function puntuacion(puntuacion){
     if(puntuacion == 5){
         htmlContentToAppend = `                                
@@ -65,42 +100,10 @@ function puntuacion(puntuacion){
 
 
 
-function showProductsInfoList() {
-    let img = "";
-    htmlContentToAppend = 
-    `<h2 class="fw-bolder">${ProductsInfoArray.name}</h2>
-    <hr>
-    <h4 class="mb-0">Categoria</h4>
-    <p>${ProductsInfoArray.category}</p>    
-    <h4 class="mb-0">Descrición</h4>
-    <p>${ProductsInfoArray.description}</p>
-    <h4 class="mb-0" >Precio</h4>
-    <p > ${ProductsInfoArray.currency} ${ProductsInfoArray.cost}</p>
 
-    <h4 class="mb-0">Cantidad de vendidos</h4>
-    <p>${ProductsInfoArray.soldCount}</p>
-  </div>`
 
-    document.getElementById("product-info-container").innerHTML = htmlContentToAppend;
-    
-    for (let i = 0; i < ProductsInfoArray.images.length; i++) {
-        img += `<div class="">
-                    <div>
-                        <img src="${ProductsInfoArray.images[i]}"  width="300" class=" rounded float-start" alt="...">
-                    </div>
-                </div>`
-        document.getElementById("products-img").innerHTML = img;
-    }
 
-}
-document.addEventListener("DOMContentLoaded", function (e) {
-    getJSONData(url).then(function (resultObj) {
-        if (resultObj.status === "ok") {
-            ProductsInfoArray = resultObj.data;
-            showProductsInfoList()
-        }
-    });
-});
+
 
 
 function showProductsComents(){
