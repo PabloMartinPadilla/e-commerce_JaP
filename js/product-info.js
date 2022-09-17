@@ -22,7 +22,7 @@ function showProductsInfoList() {
     <p>${ProductsInfoArray.soldCount}</p>
   </div>`
 
-    document.getElementById("product-info-container").innerHTML = htmlContentToAppend;
+    document.getElementById("info-productos").innerHTML = htmlContentToAppend;
     
     for (let i = 0; i < ProductsInfoArray.images.length; i++) {
         img += `<div class="">
@@ -30,7 +30,7 @@ function showProductsInfoList() {
                         <img src="${ProductsInfoArray.images[i]}"  width="300" class=" rounded float-start" alt="...">
                     </div>
                 </div>`
-        document.getElementById("products-img").innerHTML = img;
+        document.getElementById("img-productos").innerHTML = img;
     }
 
 }
@@ -97,15 +97,6 @@ function puntuacion(puntuacion){
     return htmlContentToAppend;
 }
 
-
-
-
-
-
-
-
-
-
 function showProductsComents(){
 
     let htmlContentToAppend = "";
@@ -116,7 +107,7 @@ function showProductsComents(){
   <li class="list-group-item border shadow-sm  mb-2  rounded"><h6>${coments.user}:</h6>${puntuacion(coments.score)} <p>${coments.description}</p><p class="text-end fechacom fw-light">${coments.dateTime}</p></li>
 
         `
-        document.getElementById("coments-list-container").innerHTML = htmlContentToAppend;
+        document.getElementById("comentarios").innerHTML = htmlContentToAppend;
     }
 }
 
