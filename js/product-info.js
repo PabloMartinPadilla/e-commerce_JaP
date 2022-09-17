@@ -9,7 +9,7 @@ let ProductsComentsArray = [];
 function showProductsInfoList() {
     let img = "";
     htmlContentToAppend = 
-    `<h2 class="fw-bolder">${ProductsInfoArray.name}</h2>
+    `<h2 class="fw-bolder ">${ProductsInfoArray.name}</h2>
     <hr>
     <h4 class="mb-0">Categoria</h4>
     <p>${ProductsInfoArray.category}</p>    
@@ -27,7 +27,7 @@ function showProductsInfoList() {
     for (let i = 0; i < ProductsInfoArray.images.length; i++) {
         img += `<div class="">
                     <div>
-                        <img src="${ProductsInfoArray.images[i]}"  width="300" class=" rounded float-start" alt="...">
+                        <img src="${ProductsInfoArray.images[i]}"  width="300" class="float-start border" alt="...">
                     </div>
                 </div>`
         document.getElementById("img-productos").innerHTML = img;
