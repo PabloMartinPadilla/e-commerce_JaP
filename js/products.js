@@ -9,6 +9,12 @@ let currentSortCriteriaProduct = undefined;
 let minPrice = undefined;
 let maxPrice = undefined;
 
+function setCatID(id) {
+    localStorage.setItem("catIDprod", id);
+    window.location = "product-info.html"
+}
+
+
 /* cambiar titulo*/
 document.addEventListener("DOMContentLoaded", async () => {
   const titulo = document.getElementById("TituloProducto");
