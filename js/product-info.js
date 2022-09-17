@@ -43,8 +43,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
     });
 });
 
-
-
 function puntuacion(puntuacion){
     if(puntuacion == 5){
         htmlContentToAppend = `                                
