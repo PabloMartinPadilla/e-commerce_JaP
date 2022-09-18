@@ -4,7 +4,6 @@ const urlComents = "https://japceibal.github.io/emercado-api/products_comments/"
 let ProductsInfoArray = [];
 let ProductsComentsArray = [];
 const submit = document.getElementById("btnComentar");
-console.log(url)
 
 /*  Datos e img producto    */
 function showProductsInfoList() {
