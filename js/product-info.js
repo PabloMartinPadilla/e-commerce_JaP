@@ -20,12 +20,12 @@ function showProductsInfoList() {
 
     <h4 class="mb-0">Cantidad de vendidos</h4>
     <p>${ProductsInfoArray.soldCount}</p>
-  </div>`
+  `
 
     document.getElementById("info-productos").innerHTML = htmlContentToAppend;
     
     for (let i = 0; i < ProductsInfoArray.images.length; i++) {
-        img += `<div class="">
+        img += `<div class=" ">
                     <div>
                         <img src="${ProductsInfoArray.images[i]}"  width="300" class="float-start border" alt="...">
                     </div>
@@ -43,35 +43,11 @@ document.addEventListener("DOMContentLoaded", function (e) {
     });
 });
 
-function puntuacion(puntuacion){
-    if(puntuacion == 5){
+function puntuacion(puntuacion){    
+    if(puntuacion == 0){
         htmlContentToAppend = `                                
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>`
-    }
-    if(puntuacion == 4){
-        htmlContentToAppend = `                                
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star "></span>`
-    }
-    if(puntuacion == 3){
-        htmlContentToAppend = `                                
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
         <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>`
-    }
-    if(puntuacion == 2){
-        htmlContentToAppend = `                                
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span>
         <span class="fa fa-star"></span>
         <span class="fa fa-star"></span>
         <span class="fa fa-star"></span>`
@@ -84,13 +60,37 @@ function puntuacion(puntuacion){
         <span class="fa fa-star"></span>
         <span class="fa fa-star"></span>`
     }
-    if(puntuacion == 0){
+    if(puntuacion == 2){
         htmlContentToAppend = `                                
-        <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
         <span class="fa fa-star"></span>
         <span class="fa fa-star"></span>
         <span class="fa fa-star"></span>`
+    }
+    if(puntuacion == 3){
+        htmlContentToAppend = `                                
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>`
+    }
+    if(puntuacion == 4){
+        htmlContentToAppend = `                                
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star "></span>`
+    }
+    if(puntuacion == 5){
+        htmlContentToAppend = `                                
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>`
     }
     return htmlContentToAppend;
 }
@@ -113,7 +113,7 @@ function showProductsComents(){
 document.addEventListener("DOMContentLoaded", function (e) {
 
     let idProduct = localStorage.getItem("catIDprod");
-    let urlComents = PRODUCT_INFO_COMMENTS_URL + idProduct + EXT_TYPE;
+    let urlComents = PRODUCT_INFO_COMMENTS_URL + idProduct + ".json";
     
     getJSONData(urlComents).then(function (resultObj) {
         if (resultObj.status === "ok") {
