@@ -3,6 +3,7 @@ const url = "https://japceibal.github.io/emercado-api/products/"+ idProduct + ".
 const urlComents = "https://japceibal.github.io/emercado-api/products_comments/" + idProduct + ".json";
 let ProductsInfoArray = [];
 let ProductsComentsArray = [];
+const submit = document.getElementById("btnComentar");
 
 /*  Datos e img producto    */
 function showProductsInfoList() {
@@ -119,7 +120,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
 });
 /*nuevo comentario*/
 submit.addEventListener("click", function(){
-    const submit = document.getElementById("btnComentar");
     let txtArea = document.getElementById("ComentarioNuevo").value;
     let estrellas = document.getElementById("estrellas").value;
     let email = localStorage.getItem("userEmail");
