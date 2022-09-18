@@ -1,9 +1,8 @@
-const idProduct=  localStorage.getItem("catIDprod")
+const idProduct=  localStorage.getItem("catIDprod");
 const url = "https://japceibal.github.io/emercado-api/products/"+ idProduct + ".json";
 const urlComents = "https://japceibal.github.io/emercado-api/products_comments/" + idProduct + ".json";
 let ProductsInfoArray = [];
 let ProductsComentsArray = [];
-const submit = document.getElementById("btnComentar");
 
 /*  Datos e img producto    */
 function showProductsInfoList() {
@@ -18,8 +17,7 @@ function showProductsInfoList() {
     <p > ${ProductsInfoArray.currency} ${ProductsInfoArray.cost}</p>
 
     <h4 class="mb-0">Cantidad de vendidos</h4>
-    <p>${ProductsInfoArray.soldCount}</p>
-  `
+    <p>${ProductsInfoArray.soldCount}</p>`
 
     document.getElementById("info-productos").innerHTML = ProductsInfo;
    
@@ -40,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(url).then(function (resultObj) {
         if (resultObj.status === "ok") {
             ProductsInfoArray = resultObj.data;
-            showProductsInfoList()
+            showProductsInfoList();
         }
     });
 });
@@ -103,8 +101,8 @@ function showProductsComents(){
     for(let i = 0; i < ProductsComentsArray.length; i++){
         let coments = ProductsComentsArray[i];
 
-        ProductsComents += `
-  <li class="list-group-item border shadow-sm  mb-2  rounded"><h6>${coments.user}:</h6>${puntuacion(coments.score)} <p>${coments.description}</p><p class="text-end fechacom fw-light">${coments.dateTime}</p></li>
+    ProductsComents += `
+    <li class="list-group-item border shadow-sm  mb-2  rounded"><h6>${coments.user}:</h6>${puntuacion(coments.score)} <p>${coments.description}</p><p class="text-end fechacom fw-light">${coments.dateTime}</p></li>
 
         `
         document.getElementById("comentarios").innerHTML = ProductsComents;
@@ -121,6 +119,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 });
 /*nuevo comentario*/
 submit.addEventListener("click", function(){
+    const submit = document.getElementById("btnComentar");
     let txtArea = document.getElementById("ComentarioNuevo").value;
     let estrellas = document.getElementById("estrellas").value;
     let email = localStorage.getItem("userEmail");
@@ -128,14 +127,12 @@ submit.addEventListener("click", function(){
     let year = date.getFullYear();
     let month = date.getMonth() + 1;
     let day = date.getDate();
-    let hours = date.getHours()
-    let minutes = date.getMinutes()
-    let seconds = date.getSeconds()
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    let seconds = date.getSeconds();
     let fecha = year + "-" + month + "-" + day + " "+ hours+ ":"+minutes+":"+seconds;
     htmlContentToAppend = `
-    <li class="list-group-item border shadow-sm  mb-2  rounded"><h6>${email}:</h6>${puntuacion(estrellas)} <p>${txtArea}</p><p class="text-end fechacom fw-light">${fecha}</p></li>
-  
-          `      
+    <li class="list-group-item border shadow-sm  mb-2  rounded"><h6>${email}:</h6>${puntuacion(estrellas)} <p>${txtArea}</p><p class="text-end fechacom fw-light">${fecha}</p></li>`      
     document.getElementById("comentarios").innerHTML += htmlContentToAppend;
     
 
