@@ -4,7 +4,9 @@ const urlComents = "https://japceibal.github.io/emercado-api/products_comments/"
 let ProductsInfoArray = [];
 let ProductsComentsArray = [];
 const submit = document.getElementById("btnComentar");
+console.log(url)
 
+/*  Datos e img producto    */
 function showProductsInfoList() {
     ProductsInfo = 
     `<h2 class="fw-bolder ">${ProductsInfoArray.name}</h2>
@@ -21,7 +23,8 @@ function showProductsInfoList() {
   `
 
     document.getElementById("info-productos").innerHTML = ProductsInfo;
-    
+   
+    /* imagenes productos */
     let ProductsImag = "";
     for (let i = 0; i < ProductsInfoArray.images.length; i++) {
         ProductsImag += `<div class=" ">
@@ -33,6 +36,7 @@ function showProductsInfoList() {
     }
 
 }
+/* url productos */ 
 document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(url).then(function (resultObj) {
         if (resultObj.status === "ok") {
@@ -41,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }
     });
 });
-
+/* estrellas */
 function puntuacion(puntuacion){    
     if(puntuacion == 0){
         htmlContentToAppend = `                                
@@ -93,7 +97,7 @@ function puntuacion(puntuacion){
     }
     return htmlContentToAppend;
 }
-
+/* comentarios productos */
 function showProductsComents(){
 
     let ProductsComents = "";
@@ -107,7 +111,7 @@ function showProductsComents(){
         document.getElementById("comentarios").innerHTML = ProductsComents;
     }
 }
-
+/* url comentarios */
 document.addEventListener("DOMContentLoaded", function (e) {    
     getJSONData(urlComents).then(function (resultObj) {
         if (resultObj.status === "ok") {
@@ -116,15 +120,25 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }
     });
 });
-
+/*nuevo comentario*/
 submit.addEventListener("click", function(){
     let txtArea = document.getElementById("ComentarioNuevo").value;
     let estrellas = document.getElementById("estrellas").value;
     let email = localStorage.getItem("userEmail");
+    let date = new Date();
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+    let hours = date.getHours()
+    let minutes = date.getMinutes()
+    let seconds = date.getSeconds()
+    let fecha = year + "-" + month + "-" + day + " "+ hours+ ":"+minutes+":"+seconds;
     htmlContentToAppend = `
-    <li class="list-group-item border shadow-sm  mb-2  rounded"><h6>${email}:</h6>${puntuacion(estrellas)} <p>${txtArea}</p><p class="text-end fechacom fw-light"></p></li>
+    <li class="list-group-item border shadow-sm  mb-2  rounded"><h6>${email}:</h6>${puntuacion(estrellas)} <p>${txtArea}</p><p class="text-end fechacom fw-light">${fecha}</p></li>
   
-          `
-        
+          `      
     document.getElementById("comentarios").innerHTML += htmlContentToAppend;
+    
+
 });
+
