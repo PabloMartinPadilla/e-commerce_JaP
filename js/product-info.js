@@ -1,14 +1,12 @@
-let url = "https://japceibal.github.io/emercado-api/products/"+ localStorage.getItem("catIDprod") + ".json";
-
-console.log(URL)
+const idProduct=  localStorage.getItem("catIDprod")
+const url = "https://japceibal.github.io/emercado-api/products/"+ idProduct + ".json";
+const urlComents = "https://japceibal.github.io/emercado-api/products_comments/" + idProduct + ".json";
 let ProductsInfoArray = [];
 let ProductsComentsArray = [];
-
-
+const submit = document.getElementById("btnComentar");
 
 function showProductsInfoList() {
-    let img = "";
-    htmlContentToAppend = 
+    ProductsInfo = 
     `<h2 class="fw-bolder ">${ProductsInfoArray.name}</h2>
     <hr>
     <h4 class="mb-0">Categoria</h4>
@@ -22,15 +20,16 @@ function showProductsInfoList() {
     <p>${ProductsInfoArray.soldCount}</p>
   `
 
-    document.getElementById("info-productos").innerHTML = htmlContentToAppend;
+    document.getElementById("info-productos").innerHTML = ProductsInfo;
     
+    let ProductsImag = "";
     for (let i = 0; i < ProductsInfoArray.images.length; i++) {
-        img += `<div class=" ">
+        ProductsImag += `<div class=" ">
                     <div>
                         <img src="${ProductsInfoArray.images[i]}"  width="300" class="float-start border" alt="...">
                     </div>
                 </div>`
-        document.getElementById("img-productos").innerHTML = img;
+        document.getElementById("img-productos").innerHTML = ProductsImag;
     }
 
 }
@@ -97,28 +96,35 @@ function puntuacion(puntuacion){
 
 function showProductsComents(){
 
-    let htmlContentToAppend = "";
+    let ProductsComents = "";
     for(let i = 0; i < ProductsComentsArray.length; i++){
         let coments = ProductsComentsArray[i];
 
-            htmlContentToAppend += `
+        ProductsComents += `
   <li class="list-group-item border shadow-sm  mb-2  rounded"><h6>${coments.user}:</h6>${puntuacion(coments.score)} <p>${coments.description}</p><p class="text-end fechacom fw-light">${coments.dateTime}</p></li>
 
         `
-        document.getElementById("comentarios").innerHTML = htmlContentToAppend;
+        document.getElementById("comentarios").innerHTML = ProductsComents;
     }
 }
 
-
-document.addEventListener("DOMContentLoaded", function (e) {
-
-    let idProduct = localStorage.getItem("catIDprod");
-    let urlComents = PRODUCT_INFO_COMMENTS_URL + idProduct + ".json";
-    
+document.addEventListener("DOMContentLoaded", function (e) {    
     getJSONData(urlComents).then(function (resultObj) {
         if (resultObj.status === "ok") {
             ProductsComentsArray = resultObj.data;
             showProductsComents()
         }
     });
+});
+
+submit.addEventListener("click", function(){
+    let txtArea = document.getElementById("ComentarioNuevo").value;
+    let estrellas = document.getElementById("estrellas").value;
+    let email = localStorage.getItem("userEmail");
+    htmlContentToAppend = `
+    <li class="list-group-item border shadow-sm  mb-2  rounded"><h6>${email}:</h6>${puntuacion(estrellas)} <p>${txtArea}</p><p class="text-end fechacom fw-light"></p></li>
+  
+          `
+        
+    document.getElementById("comentarios").innerHTML += htmlContentToAppend;
 });
