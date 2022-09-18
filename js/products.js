@@ -82,25 +82,6 @@ function showProductsList() {
                 </div>
             </div>
 `;
-
-/* <div class="container shadow p-3 mb-5 bg-body rounded">
-    <div class="card mb-3" style="max-width: 2000px;">
-      <div class="row g-0">
-        <div class="col-md-4">
-          <img src="${product.image}" class="img-fluid rounded-start" alt="...">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">${product.name}</h5>
-            <p class="card-text">${product.description}</p>
-            <p class="card-text"><small class="text-muted position-absolute bottom-0 end-1">Vendidos: ${product.soldCount}</small></p>
-            <p class="card-text"><small class="text-muted position-absolute bottom-0 end-0" style="padding-right:10px">${product.currency} ${product.cost}</small></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> */
-
         }
         document.getElementById("ListaProductos").innerHTML = htmlContentToAppend;
     }
