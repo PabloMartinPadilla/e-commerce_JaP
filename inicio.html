@@ -12,16 +12,16 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-2">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
     <div class="container">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="collapse navbar-collapse" >
         <ul class="navbar-nav w-100 justify-content-between">
           <li class="nav-item">
-            <a class="nav-link active" href="inicio.html">Inicio</a>
+            <a class="nav-link" href="inicio.html">Inicio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="categories.html">Categorías</a>
@@ -29,18 +29,32 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item" id="showEmail">
+          
+          <li class="nav-item">
+            <div class="collapse navbar-collapse" >
+              <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="showEmail" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                    <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+                    <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+                    <li><a class="dropdown-item" href="index.html" id="cerrar-sesion">Cerrar sesión</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
           </li>
         </ul>
       </div>
     </div>
   </nav>
   <main>
-    <div class="jumbotron text-center "></div>
+    <img src="img/cover_back.png"  class="img-fluid m-0 p-0" alt="">
     <div class="album py-5 bg-light ">
-      <div class="container">
+      <div class="container ">
         <div class="row">
-          <div class="col-md-4 crece">
+          <div class="col-md-4  crece">
             <div class="card mb-4 shadow p-2 custom-card cursor-active user-select-none" id="autos">
               <img class="bd-placeholder-img card-img-top" src="img/cars_index.jpg"
                 alt="Imgagen representativa de la categoría 'Autos'">
@@ -50,7 +64,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-4 crece">
+          <div class="col-md-4  crece">
             <div class="card mb-4 shadow p-2 custom-card cursor-active user-select-none" id="juguetes">
               <img class="bd-placeholder-img card-img-top" src="img/toys_index.jpg"
                 alt="Imgagen representativa de la categoría 'Juguetes'">
@@ -60,7 +74,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-4 crece">
+          <div class="col-md-4  crece">
             <div class="card mb-4 shadow p-2 custom-card cursor-active user-select-none" id="muebles">
               <img class="bd-placeholder-img card-img-top" src="img/furniture_index.jpg"
                 alt="Imgagen representativa de la categoría 'Muebles'">
@@ -72,7 +86,7 @@
           </div>
         </div>
         <div class="row">
-          <a class="btn btn-light btn-lg btn-block" href="categories.html">Y mucho más!</a>
+          <a class="btn btn-outline-secondary p-4" href="categories.html"> Mas categorias....</a>
         </div>
       </div>
     </div>

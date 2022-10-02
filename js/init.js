@@ -45,7 +45,7 @@ let getJSONData = function(url){
 document.addEventListener("DOMContentLoaded", function (e) {
   let eemail = localStorage.getItem("userEmail");
 
-  htmlContentToAppend = `<a class="nav-link">${eemail}</a>`
+  htmlContentToAppend = `<a>${eemail}</a>`
 
   document.getElementById("showEmail").innerHTML = htmlContentToAppend;
 

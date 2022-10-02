@@ -5,6 +5,12 @@ let ProductsInfoArray = [];
 let ProductsComentsArray = [];
 const submit = document.getElementById("btnComentar");
 
+function setCatID(id) {
+    localStorage.setItem("catIDprod", id);
+    window.location = "product-info.html"
+}
+
+
 /*  Datos e img producto    */
 function showProductsInfoList() {
     ProductsInfo = 
@@ -32,6 +38,19 @@ function showProductsInfoList() {
                 </div>`
         document.getElementById("img-productos").innerHTML = ProductsImag;
     }
+    /*  productos relacionados   */
+    let products="";
+    for (let i=0; i<ProductsInfoArray.relatedProducts.length; i++){
+        let item = ProductsInfoArray.relatedProducts[i]
+        products +=`<div class="col-md-4 crece">
+            <div class="card mb-4 shadow p-2 custom-card cursor-active user-select-none" onclick="setCatID(${item.id})">
+              <img class="bd-placeholder-img card-img-top" src="${item.image}"
+                alt="Imgagen representativa del producto">
+              <h3 class="m-3">${item.name}</h3>
+            </div>
+          </div>
+        `           
+        document.getElementById("rela-productos").innerHTML = products;}
 
 }
 /* url productos */ 
