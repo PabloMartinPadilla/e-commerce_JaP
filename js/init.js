@@ -50,3 +50,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
   document.getElementById("showEmail").innerHTML = htmlContentToAppend;
 
 });
+
+const logout = document.getElementById("cerrar-sesion");
+logout.addEventListener("click", function(){
+  localStorage.removeItem('userEmail');
+})
