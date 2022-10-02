@@ -11,7 +11,7 @@ function setCatID(id) {
 }
 
 
-/*  Datos e img producto    */
+/*  Datos, img y productos relacionados  */
 function showProductsInfoList() {
     ProductsInfo = 
     `<h2 class="fw-bolder ">${ProductsInfoArray.name}</h2>
@@ -41,12 +41,12 @@ function showProductsInfoList() {
     /*  productos relacionados   */
     let products="";
     for (let i=0; i<ProductsInfoArray.relatedProducts.length; i++){
-        let item = ProductsInfoArray.relatedProducts[i]
+        let ProductsRel = ProductsInfoArray.relatedProducts[i]
         products +=`<div class="col-md-4 crece">
-            <div class="card mb-4 shadow p-2 custom-card cursor-active user-select-none" onclick="setCatID(${item.id})">
-              <img class="bd-placeholder-img card-img-top" src="${item.image}"
+            <div class="card mb-4 shadow p-2 custom-card cursor-active user-select-none" onclick="setCatID(${ProductsRel.id})">
+              <img class="bd-placeholder-img card-img-top" src="${ProductsRel.image}"
                 alt="Imgagen representativa del producto">
-              <h3 class="m-3">${item.name}</h3>
+              <h3 class="m-3">${ProductsRel.name}</h3>
             </div>
           </div>
         `           

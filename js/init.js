@@ -51,6 +51,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
 });
 
+/* funcion para borrar usuario */
 const logout = document.getElementById("cerrar-sesion");
 logout.addEventListener("click", function(){
   localStorage.removeItem('userEmail');
