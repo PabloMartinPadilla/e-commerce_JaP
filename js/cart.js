@@ -17,7 +17,7 @@
 /* Producto precargado*/
 const cartURL = "https://japceibal.github.io/emercado-api/user_cart/" + 25801 + ".json";
 
-const fetchasync = async (url) => {
+const urlasync = async (url) => {
     const fetchProm = await fetch(url);
     if (fetchProm.ok) {
       fetchResp = await fetchProm.json();
@@ -27,7 +27,7 @@ const fetchasync = async (url) => {
 
 
 document.addEventListener("DOMContentLoaded", async () => {
-  const cartPreloadedProds = await fetchasync(cartURL);
+  const cartPreloadedProds = await urlasync(cartURL);
   let {name, currency, unitCost, count, image } = cartPreloadedProds.articles[0];
   function getCartPreloadedProducts() {
     return `
@@ -60,16 +60,16 @@ document.addEventListener("DOMContentLoaded", async () => {
   document.getElementById("escribir").innerHTML += getCartPreloadedProducts();
 
   /* Cuenta */
-let amountProduct = document.getElementById("cantidad");
-  let subtotalProduct = document.getElementById("costoTotal");
-  amountProduct.addEventListener("change", () => {
-    if (amountProduct.value > 1) {
+let cantidad = document.getElementById("cantidad");
+  let Total = document.getElementById("costoTotal");
+  cantidad.addEventListener("change", () => {
+    if (cantidad.value > 1) {
       let currentTotal =
-        amountProduct.value * cartPreloadedProds.articles[0].unitCost;
-      return (subtotalProduct.innerHTML = currency + " " + currentTotal);
+      cantidad.value * cartPreloadedProds.articles[0].unitCost;
+      return (Total.innerHTML = currency + " " + currentTotal);
     } else{
-        amountProduct.value = 1;
-        return (subtotalProduct.innerHTML = currency + " " + unitCost);
+        cantidad.value = 1;
+        return (Total.innerHTML = currency + " " + unitCost);
     }
   });
 })
