@@ -1,19 +1,3 @@
-/*Boostrap*/
-(function () {
-      var forms = document.querySelectorAll('.needs-validation')
-      Array.prototype.slice.call(forms)
-      .forEach(function (form) {
-        form.addEventListener('submit', function (event) {
-          if (!form.checkValidity()) {
-            event.preventDefault()
-            event.stopPropagation()
-          }
-  
-          form.classList.add('was-validated')
-        }, false)
-      })
-  })()
-
 /* Producto precargado*/
 const url = "https://japceibal.github.io/emercado-api/user_cart/" + 25801 + ".json";
 
@@ -73,3 +57,18 @@ let cantidad = document.getElementById("cantidad");
   });
 })
 
+/*Boostrap*/
+(function () {
+      var forms = document.querySelectorAll('.needs-validation')
+      Array.prototype.slice.call(forms)
+      .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+  
+          form.classList.add('was-validated')
+        }, false)
+      })
+    })()
