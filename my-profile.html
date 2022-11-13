@@ -65,11 +65,64 @@
     </div>
   </nav>
   <main>
+
+   
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
+       <div class=" pt-4">
+      <h2>Perfil</h2>
     </div>
+       <hr>
+        
+      <form class="row g-3 needs-validation" novalidate>
+        <div class="col-md-4 position-relative">
+          <label for="validationTooltip01" class="form-label">Primer nombre*</label>
+          <input type="text" class="form-control" id="validationTooltip01" required>
+          <div class="valid-tooltip">
+            Perfecto!
+          </div>
+          <div class="invalid-tooltip">
+            Debe completar el campo
+           </div>
+        </div>
+        <div class="col-md-4 position-relative">
+          <label for="validationTooltip02" class="form-label">Segundo nombre</label>
+          <input type="text" class="form-control" id="validationTooltip02" >
+        </div>
+        <div class="col-md-4 position-relative">
+          <label for="validationTooltip03" class="form-label">Primer apellido*</label>
+          <input type="text" class="form-control" id="validationTooltip03" required>
+          <div class="valid-tooltip">
+            Perfecto!
+          </div>
+          <div class="invalid-tooltip">
+           Debe completar el campo
+          </div>
+        </div>
+        <div class="col-md-4 position-relative mt-5">
+          <label for="validationTooltip04" class="form-label">Segundo apellido</label>
+          <input type="text" class="form-control" id="validationTooltip04" >
+        </div>
+        <div class="col-md-4 position-relative mt-5">
+          <label for="validationTooltip05" class="form-label">E-mail*</label>
+          <input type="email" class="form-control" id="validationTooltip05" required>
+          <div class="valid-tooltip">
+            Perfecto!
+          </div>
+          <div class="invalid-tooltip">
+           Debe ingresar un e-mail
+          </div>
+        </div>
+        <div class="col-md-4 position-relative mt-5">
+          <label for="validationTooltip03" class="form-label">Telefono de contacto</label>
+          <input type="number" class="form-control" id="validationTooltip03" >
+        </div>
+        <div class="col-12">
+          <button class="btn btn-secondary mt-4" type="submit">Submit form</button>
+        </div>
+      </form>
+
+
+      </div>
   </main>
   <footer class="text-muted">
     <div class="container">
