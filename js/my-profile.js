@@ -22,6 +22,13 @@
   });
 })();
 
+document.addEventListener("DOMContentLoaded", function () {
+  let email = localStorage.getItem("userEmail");
+  if (email == null) {
+    window.location = "index.html";
+  }
+});
+
 let Nombre = document.getElementById("validationTooltip01");
 let Nombre2 = document.getElementById("validationTooltip02");
 let Apellido = document.getElementById("validationTooltip03");
@@ -54,3 +61,5 @@ document.addEventListener("DOMContentLoaded", function () {
     Telefono.value = localStorage.getItem("Telefono");
   }
 });
+
+
