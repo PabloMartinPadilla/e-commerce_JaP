@@ -1,11 +1,6 @@
-// Example starter JavaScript for disabling form submissions if there are invalid fields
+//Bostrap
 (function () {
-  "use strict";
-
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
   var forms = document.querySelectorAll(".needs-validation");
-
-  // Loop over them and prevent submission
   Array.prototype.slice.call(forms).forEach(function (form) {
     form.addEventListener(
       "submit",
@@ -14,7 +9,6 @@
           event.preventDefault();
           event.stopPropagation();
         }
-
         form.classList.add("was-validated");
       },
       false
@@ -22,20 +16,14 @@
   });
 })();
 
-document.addEventListener("DOMContentLoaded", function () {
-  let email = localStorage.getItem("userEmail");
-  if (email == null) {
-    window.location = "index.html";
-  }
-});
-
 let Nombre = document.getElementById("validationTooltip01");
 let Nombre2 = document.getElementById("validationTooltip02");
 let Apellido = document.getElementById("validationTooltip03");
 let Apellido2 = document.getElementById("validationTooltip04");
 let Telefono = document.getElementById("validationTooltip06");
-
 let submit = document.getElementById("submit");
+
+//Guardar los valores en la local storage
 submit.addEventListener("click", () => {
   let NombreV = Nombre;
   let Nombre2V = Nombre2;
@@ -50,16 +38,20 @@ submit.addEventListener("click", () => {
   localStorage.setItem("Telefono", TelefonoV.value);
 });
 
+//Verifica si el usuario ingreso y raer valores de la local storage para completar los inputs
 document.addEventListener("DOMContentLoaded", function () {
   let email = localStorage.getItem("userEmail");
-  if (email !== null) {
+
+  if (email == null) {
+    window.location = "index.html";}
+  else {
     document.getElementById("validationTooltip05").value = email;
     Nombre.value = localStorage.getItem("Nombre");
     Nombre2.value = localStorage.getItem("Nombre2");
     Apellido.value = localStorage.getItem("Apellido");
     Apellido2.value = localStorage.getItem("Apellido2");
     Telefono.value = localStorage.getItem("Telefono");
-  }
+  };
 });
 
 
