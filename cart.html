@@ -133,7 +133,7 @@
               <div class="d-flex justify-content-between">
                 <h5>Costo de envio</h5>
                 <div>
-                  <p id="CostoEnvio"></p>
+                  <p id="CostoEnvio">USD 123</p>
                 </div>
               </div>
               <p>Segun el tipo de envio</p>
@@ -149,8 +149,6 @@
           </div>
         </div>
       </div>
-
-
       <div class="col-sm-12 ms-5 ps-5 mt-3">
         <button type="button" class="btn btn-success p-2" data-bs-toggle="modal" data-bs-target="#modalTerminos"
           id="TerminosDeServicio" aria-describedby="divTer">
@@ -158,7 +156,6 @@
         </button>
         <p id="alertaPago"> </p>
       </div>
-
       <div class="modal fade" id="modalTerminos" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -186,38 +183,28 @@
                 <label for="validationTooltip017" class="form-label">Vencimiento (MM/AA):</label>
                 <input type="month" id="validationTooltip017" class="form-control " required disabled>
               </div>
-
               <div class="form-check mb-3 mt-5">
                 <input type="radio" class="form-check-input" id="radioBancaria" name="radio-stacked2" required>
                 <label class="form-check-label" for="validationFormCheck13">Transferencia bancaria</label>
               </div>
               <hr>
-
               <div class="col-md-4 position-relative">
                 <label for="validationTooltip014" class="form-label">Numero de cuenta:</label>
                 <input type="number" class="form-control" id="validationTooltip014" required disabled>
               </div>
-
             </div>
             <div class="modal-footer">
-
             </div>
           </div>
         </div>
       </div>
       </div>
-
-
-
-
       <div class="col-12 ms-5 mt-4 mb-3 ">
         <button class="btn btn-secondary ms-5 ps-5 pe-5" type="submit" id="submit">
           Comprar
         </button>
       </div>
     </form>
-
-
   </main>
 
   <script src="js/bootstrap.bundle.min.js"></script>
