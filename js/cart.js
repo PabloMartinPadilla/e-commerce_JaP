@@ -87,10 +87,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 //modal
-nroTarjeta = document.getElementById("validationTooltip015");
-nroCuenta = document.getElementById("validationTooltip014");
-codSeguridad = document.getElementById("validationTooltip016");
-vencTarjeta = document.getElementById("validationTooltip017");
+let nroTarjeta = document.getElementById("validationTooltip015");
+let codSeguridad = document.getElementById("validationTooltip016");
+let vencTarjeta = document.getElementById("validationTooltip017");
+let nroCuenta = document.getElementById("validationTooltip014");
 
 document.getElementById("radioTarjeta").addEventListener("click", function (e) {
   nroTarjeta.disabled = false;
